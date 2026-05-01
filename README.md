@@ -1,20 +1,56 @@
 # VectorHawk Homebrew Tap
 
-Homebrew formulae for [SkillRunner](https://github.com/vectorhawk/skillrunner) -- the local AI skill runtime and MCP aggregator.
+Homebrew formulae for the VectorHawk platform.
 
-## Install SkillRunner
+## VectorHawk runner
+
+Install the VectorHawk runner (includes `vectorhawk`, `vectorhawkd`, and `vectorhawkd-shim`):
+
+```bash
+brew tap vectorhawk/tap
+brew install vectorhawk
+```
+
+Then provision the daemon and configure your AI client:
+
+```bash
+vectorhawk daemon install
+vectorhawk mcp setup
+```
+
+### Upgrade
+
+```bash
+brew upgrade vectorhawk
+```
+
+### Uninstall
+
+```bash
+brew uninstall vectorhawk
+# Remove the LaunchAgent if you installed it:
+vectorhawk daemon uninstall
+```
+
+---
+
+## Legacy: SkillRunner (deprecated, not yet removed)
+
+The following formulae are the predecessor to VectorHawk and will be removed in a future cleanup commit.
+
+### Install SkillRunner
 
 ```bash
 brew install vectorhawk/tap/skillrunner
 ```
 
-## Upgrade
+### Upgrade
 
 ```bash
 brew upgrade skillrunner
 ```
 
-## Build from source
+### Build from source
 
 If you prefer to compile from source (requires Rust 1.75+):
 
@@ -26,5 +62,6 @@ brew install vectorhawk/tap/skillrunner-source
 
 | Formula | Description |
 |---------|-------------|
-| `skillrunner` | Pre-built binary (macOS arm64/x86_64, Linux x86_64/arm64) |
-| `skillrunner-source` | Built from source (requires Rust toolchain) |
+| `vectorhawk` | VectorHawk runner -- pre-built binary (macOS arm64/x86_64) |
+| `skillrunner` | Pre-built binary (macOS arm64/x86_64, Linux x86_64/arm64) -- legacy |
+| `skillrunner-source` | Built from source (requires Rust toolchain) -- legacy |
