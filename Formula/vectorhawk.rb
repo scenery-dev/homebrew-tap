@@ -1,19 +1,17 @@
 class Vectorhawk < Formula
   desc "Governed AI platform for skills, MCP servers, and plugins"
   homepage "https://vectorhawk.ai"
+  version "0.1.0-rc.0"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
-      # TODO(D1.3 release-day): update url and fill in sha256 for aarch64-apple-darwin
-      url "https://github.com/vectorhawk/vectorhawkd/releases/download/v0.1.0/vectorhawk-0.1.0-aarch64-apple-darwin.tar.gz"
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+      url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-aarch64-apple-darwin.tar.gz"
+      sha256 "c06216243d7b71caaa8bcee3cbb5061498e8ab3689e7fae4e27a9558cabe9ffa"
     end
-    on_intel do
-      # TODO(D1.3 release-day): update url and fill in sha256 for x86_64-apple-darwin
-      url "https://github.com/vectorhawk/vectorhawkd/releases/download/v0.1.0/vectorhawk-0.1.0-x86_64-apple-darwin.tar.gz"
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
-    end
+    # x86_64-apple-darwin (Intel) is not yet built — the GitHub free-tier
+    # macos-13 runner pool was unreliable for v0.1.0-rc.0. Cross-compile
+    # support from macos-14 lands before v1.0.
   end
 
   # Linux support is intentionally omitted -- Linux users should use:
