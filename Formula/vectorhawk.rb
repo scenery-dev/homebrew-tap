@@ -14,9 +14,13 @@ class Vectorhawk < Formula
     # support from macos-14 lands before v1.0.
   end
 
-  # Linux support is intentionally omitted -- Linux users should use:
-  #   curl -fsSL https://install.vectorhawk.ai | sh
-  # Homebrew on Linux is not a primary target; we may add it later.
+  on_linux do
+    on_intel do
+      url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "f6f27330acbad0bc917fcb71cb629706839545cf70c8dc243b7fd2d1b6109bf1"
+    end
+    # ARM Linux not yet built. Track demand before adding.
+  end
 
   def install
     bin.install "vectorhawk"
