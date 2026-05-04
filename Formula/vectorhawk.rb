@@ -1,23 +1,22 @@
 class Vectorhawk < Formula
   desc "Governed AI platform for skills, MCP servers, and plugins"
   homepage "https://vectorhawk.ai"
-  version "0.1.0-rc.0"
+  version "1.0.0"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "c06216243d7b71caaa8bcee3cbb5061498e8ab3689e7fae4e27a9558cabe9ffa"
+      sha256 "7c77c3661c5a2383906c2ca6436094703d46fd705d65b17df12eb08073516904"
     end
-    # x86_64-apple-darwin (Intel) is not yet built — the GitHub free-tier
-    # macos-13 runner pool was unreliable for v0.1.0-rc.0. Cross-compile
-    # support from macos-14 lands before v1.0.
+    # x86_64-apple-darwin (Intel) deferred — cross-compile from macos-14
+    # is the planned approach (free-tier macos-13 runner pool is unreliable).
   end
 
   on_linux do
     on_intel do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "f6f27330acbad0bc917fcb71cb629706839545cf70c8dc243b7fd2d1b6109bf1"
+      sha256 "2b6b4da73ae3ce58a55e81a924caa8ec5ea146b01bf1a95dc66b2a79dbb2ab2a"
     end
     # ARM Linux not yet built. Track demand before adding.
   end
