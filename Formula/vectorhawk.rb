@@ -7,18 +7,18 @@ class Vectorhawk < Formula
   on_macos do
     on_arm do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "e69aaf48850e0cebad92602b4f200fabc7fd0b683bf1eedc2174b07bfa2771c4"
+      sha256 "ae02e9e63bed5436ee38bf3c8bab839766542aef5a43fa2228d3df5a0dc2aa68"
     end
     on_intel do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "5341113ca43ae39d022ac158f9e842fe7bb62c6f4ec2c871deed59cff4391862"
+      sha256 "5dd74cc8fcfd2fe1728b3cb9f0762bd3150e7678e3d9e5d52667247abea1ac4f"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "d770f24b1bb7797fb02d1ef3f9d88a3ef7452f9d7d07d056ccdeab6d8742d516"
+      sha256 "a77aa936e7e0ef0715290b9316ff0d31d2f4ae88a2ddfeb88f4fdf3b984d9d1c"
     end
     # ARM Linux not yet built. Track demand before adding.
   end
