@@ -27,23 +27,30 @@ class Vectorhawk < Formula
     bin.install "vectorhawk"
     bin.install "vectorhawkd"
     bin.install "vectorhawkd-shim"
-    # The bare LICENSE/README live alongside the binaries in the tarball.
     prefix.install "LICENSE"
     prefix.install "README.md" if File.exist?("README.md")
   end
 
+  def post_install
+    # Install the login-time daemon (LaunchAgent on macOS, systemd user unit on
+    # Linux).  On Linux over SSH the unit is written and enabled but the start
+    # may fail silently if no D-Bus session exists — it will start on next login.
+    system "#{bin}/vectorhawk", "daemon", "install"
+
+    # Write the vectorhawk entry into every detected AI client config so users
+    # can call vectorhawk_login on first use without any manual setup.
+    system "#{bin}/vectorhawk", "mcp", "setup"
+  end
+
   def caveats
     <<~EOS
-      To enable the VectorHawk daemon at login (LaunchAgent):
-        vectorhawk daemon install
+      VectorHawk is ready. Open your AI client and call the vectorhawk_login
+      tool to authenticate, then use vectorhawk_search or /skill-search to
+      browse available skills.
 
-      To configure your AI client:
-        vectorhawk mcp setup
-
-      Uninstall:
-        brew uninstall vectorhawk
-        # Then remove the LaunchAgent if you installed it:
+      To uninstall cleanly:
         vectorhawk daemon uninstall
+        brew uninstall vectorhawk
     EOS
   end
 
