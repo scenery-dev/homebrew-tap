@@ -33,9 +33,16 @@ class Vectorhawk < Formula
 
   def post_install
     # Install the login-time daemon (LaunchAgent on macOS, systemd user unit on
-    # Linux).  On Linux over SSH the unit is written and enabled but the start
-    # may fail silently if no D-Bus session exists — it will start on next login.
-    system "#{bin}/vectorhawk", "daemon", "install"
+    # Linux).  On Linux over SSH the unit is written but systemctl daemon-reload
+    # will fail if no D-Bus session is present — this is expected and non-fatal.
+    # The unit activates on the user's next interactive login.
+    # Use system_command (non-raising) so a D-Bus failure here does not abort
+    # post_install before mcp setup runs.
+    system_command "#{bin}/vectorhawk",
+                   args:             ["daemon", "install"],
+                   print_stdout:     true,
+                   print_stderr:     true,
+                   raise_on_failure: false
 
     # Write the vectorhawk entry into every detected AI client config so users
     # can call vectorhawk_login on first use without any manual setup.
