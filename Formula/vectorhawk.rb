@@ -36,13 +36,9 @@ class Vectorhawk < Formula
     # Linux).  On Linux over SSH the unit is written but systemctl daemon-reload
     # will fail if no D-Bus session is present — this is expected and non-fatal.
     # The unit activates on the user's next interactive login.
-    # Use system_command (non-raising) so a D-Bus failure here does not abort
-    # post_install before mcp setup runs.
-    system_command "#{bin}/vectorhawk",
-                   args:             ["daemon", "install"],
-                   print_stdout:     true,
-                   print_stderr:     true,
-                   raise_on_failure: false
+    # Use || true so a D-Bus failure here does not abort post_install before
+    # mcp setup runs.
+    system "/bin/sh", "-c", "#{bin}/vectorhawk daemon install || true"
 
     # Write the vectorhawk entry into every detected AI client config so users
     # can call vectorhawk_login on first use without any manual setup.
