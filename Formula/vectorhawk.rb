@@ -33,16 +33,12 @@ class Vectorhawk < Formula
 
   def post_install
     # Install the login-time daemon (LaunchAgent on macOS, systemd user unit on
-    # Linux).  On Linux over SSH the unit is written but systemctl daemon-reload
-    # will fail if no D-Bus session is present — this is expected and non-fatal.
-    # The unit activates on the user's next interactive login.
-    # Use || true so a D-Bus failure here does not abort post_install before
-    # mcp setup runs.
+    # Linux).  On Linux the Homebrew sandbox may not have an active D-Bus
+    # session, so systemctl --user calls fail with "No medium found".  Both
+    # daemon install and mcp setup can trigger this; both are non-fatal because
+    # the systemd unit file is still written and will activate on next login.
     system "/bin/sh", "-c", "#{bin}/vectorhawk daemon install || true"
-
-    # Write the vectorhawk entry into every detected AI client config so users
-    # can call vectorhawk_login on first use without any manual setup.
-    system "#{bin}/vectorhawk", "mcp", "setup"
+    system "/bin/sh", "-c", "#{bin}/vectorhawk mcp setup || true"
   end
 
   def caveats
@@ -50,6 +46,10 @@ class Vectorhawk < Formula
       VectorHawk is ready. Open your AI client and call the vectorhawk_login
       tool to authenticate, then use vectorhawk_search or /skill-search to
       browse available skills.
+
+      If your AI client was not configured automatically (e.g. install ran over
+      SSH without a D-Bus session), run once in your normal login shell:
+        vectorhawk mcp setup
 
       To uninstall cleanly:
         vectorhawk daemon uninstall
