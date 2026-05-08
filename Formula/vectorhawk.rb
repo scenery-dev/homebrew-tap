@@ -43,11 +43,14 @@ class Vectorhawk < Formula
 
   def caveats
     <<~EOS
-      VectorHawk is ready. Open your AI client and call the vectorhawk_login
-      tool to authenticate, then use vectorhawk_search or /skill-search to
-      browse available skills.
+      VectorHawk is ready.
 
-      If your AI client was not configured automatically (e.g. install ran over
+      Next steps:
+        1. Restart Claude Code (quit and reopen).
+        2. Call the vectorhawk_login tool to authenticate.
+        3. Use /skill-search or vectorhawk_search to browse available skills.
+
+      If Claude Code was not configured automatically (e.g. install ran over
       SSH without a D-Bus session), run once in your normal login shell:
         vectorhawk mcp setup
 
