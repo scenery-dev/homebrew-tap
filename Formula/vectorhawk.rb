@@ -55,6 +55,7 @@ class Vectorhawk < Formula
         vectorhawk mcp setup
 
       To uninstall cleanly:
+        vectorhawk mcp remove
         vectorhawk daemon uninstall
         brew uninstall vectorhawk
     EOS
