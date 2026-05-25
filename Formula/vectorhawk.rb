@@ -1,24 +1,24 @@
 class Vectorhawk < Formula
   desc "Governed AI platform for skills, MCP servers, and plugins"
   homepage "https://vectorhawk.ai"
-  version "1.0.51"
+  version "1.0.52"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "75707ccb3cf0a13d50a6315bfb2be191d9b9c2abf48cddb334095b46bec8a98e"
+      sha256 "203d5bccef5335fddac6b21bdf500a42ec9669c706d27c6ccbc2aa5ca372b006"
     end
     on_intel do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "21e9871dc6f7c50914d2bab8debdeaa4d3f4ca62fc55a20807849d1d0c0d6de5"
+      sha256 "bf3d88635222d86c37aa09b5dc0d120ebda3c9c8a1f968bb79208ce1e8394d91"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "5d6a750ebbf764c1aae788695efed903ddd57c07a3173292c81080c30de112d4"
+      sha256 "f67ebb77da453f4ac64b1f9e29a6ae6c4c3ce45b29a20b0a9862499dc5cd8d7a"
     end
     # ARM Linux not yet built. Track demand before adding.
   end
