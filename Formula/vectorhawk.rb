@@ -1,32 +1,30 @@
 class Vectorhawk < Formula
   desc "Governed AI platform for skills, MCP servers, and plugins"
   homepage "https://vectorhawk.ai"
-  version "1.0.64"
+  version "1.0.65"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "8fb6cec1044f5ed53132a149aa2be1de0ee87d3299595c5b2b9ad2787e71b9df"
+      sha256 "e48630eab25cea5f535178cb812ff7215fe63e22938ca91d64139ac7f18d1a6a"
     end
     on_intel do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "cdb67f458f25fb71458f5718241ab5a953cae2c9388620aedbe76743892abbd0"
+      sha256 "e67756c0ee77bf3acf6ec2ea8ac7dab458637838ddea3385f666c682e6b39b28"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "911d50be5902d480235ec65d3be31c5178b4312bc35a330191de181dd2885b54"
+      sha256 "64e92fec1c160a42556a32fe9caa4f61ccd549871ef6641f94c0efda0636cef0"
     end
     # ARM Linux not yet built. Track demand before adding.
   end
 
   def install
     bin.install "vectorhawk"
-    bin.install "vectorhawkd"
-    bin.install "vectorhawkd-shim"
     prefix.install "LICENSE"
     prefix.install "README.md" if File.exist?("README.md")
   end
