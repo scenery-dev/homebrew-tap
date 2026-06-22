@@ -18,7 +18,7 @@ class Vectorhawk < Formula
   on_linux do
     on_intel do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "fe9a255e8ff634692ef49c80bd4a1e36811ddda5ed8414cda3f904b9c4746e07"
+      sha256 "dcf411a33fff43d4f0dd94413f05ffc05e3b462c91c1881fb766e4b855a22791"
     end
     # ARM Linux not yet built. Track demand before adding.
   end
