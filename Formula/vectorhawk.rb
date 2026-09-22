@@ -1,24 +1,24 @@
 class Vectorhawk < Formula
   desc "Governed AI platform for skills, MCP servers, and plugins"
   homepage "https://vectorhawk.ai"
-  version "1.0.88"
+  version "1.0.89"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "2abbe0830dd6de187efff528f1547da38b648ff906cafcde5a2d42070583f844"
+      sha256 "334da8b20b05fc93a7c10239e72306b9d92b620d4b3a403b098ab5d448a8bd9c"
     end
     on_intel do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "fe92fb4efb825cb6488a8d02408c1821008ca2786e5b73df2ab7bcf9c09e4c73"
+      sha256 "01fec74718195f5bca99f10a96a8d89b1c0a9e8af511b23ae4dad1b76d0a1cd6"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "1709ccbc40e9a39b1ddaaded933013848e2393f1533e4c516be4cd8c90ea2f42"
+      sha256 "cf1ce018e2a4368ed96ead9d15a6e2db451592ed089841fb364ba5461898702b"
     end
     # ARM Linux not yet built. Track demand before adding.
   end
@@ -44,11 +44,17 @@ class Vectorhawk < Formula
       VectorHawk is ready.
 
       Next steps:
-        1. Restart Claude Code (quit and reopen).
-        2. Call the vectorhawk_login tool to authenticate.
+        1. Pair this device. Find the code on the portal's device setup screen
+           (open the catalog page — if this device isn't registered yet, you'll
+           see it there), then run and paste it when prompted:
+             vectorhawk auth pair
+        2. Restart Claude Code (quit and reopen).
         3. Browse and install skills in the portal, or use the vectorhawk_search
            / vectorhawk_install MCP tools. Installed skills appear as usual in
            Claude Code's skills list.
+
+      Deploying across a fleet? Set VH_PAIR_CODE and pairing runs unattended:
+        VH_PAIR_CODE=<code> vectorhawk auth pair
 
       If Claude Code was not configured automatically (e.g. install ran over
       SSH without a D-Bus session), run once in your normal login shell:
