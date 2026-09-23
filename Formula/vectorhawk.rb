@@ -76,9 +76,12 @@ class Vectorhawk < Formula
 
       Pointing at a private registry? Homebrew reads per-service environment
       from ~/.homebrew/services/vectorhawk.env (KEY=value, one per line), which
-      persists across upgrades:
+      persists across upgrades. The file must NOT be group- or world-writable
+      or Homebrew skips it with a warning, so set the mode explicitly:
+        mkdir -p ~/.homebrew/services
         echo 'VECTORHAWK_REGISTRY_URL=https://registry.example.com' \\
           >> ~/.homebrew/services/vectorhawk.env
+        chmod 600 ~/.homebrew/services/vectorhawk.env
         brew services restart vectorhawk
 
       Upgrades: the agent notices its own binary changed and restarts itself
