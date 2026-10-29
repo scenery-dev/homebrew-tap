@@ -8,8 +8,8 @@ Install the VectorHawk runner — a single `vectorhawk` binary that embeds the
 CLI, the daemon (`vectorhawk daemon run`), and the MCP relay (`vectorhawk mcp serve`):
 
 ```bash
-brew tap vectorhawk/tap
-brew trust vectorhawk/tap
+brew tap scenery-dev/tap
+brew trust scenery-dev/tap
 brew install vectorhawk
 ```
 
