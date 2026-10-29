@@ -1,24 +1,24 @@
 class Vectorhawk < Formula
   desc "Governed AI platform for skills, MCP servers, and plugins"
   homepage "https://vectorhawk.ai"
-  version "1.0.114"
+  version "1.0.115"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "e99c1e68c25e55d03b5e973f5d83248dcfd31c0408796296c9addebfa494dec9"
+      url "https://github.com/scenery-dev/sceneryd/releases/download/v#{version}/vectorhawk-#{version}-aarch64-apple-darwin.tar.gz"
+      sha256 "8ca5da34f86f16e3d982e7c75447122c2da3502f984802807ead823e582e8e82"
     end
     on_intel do
-      url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "762f70adeda02210f718aa2b7cb02383d9529c03491e015299770d1a72aa2e7e"
+      url "https://github.com/scenery-dev/sceneryd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-apple-darwin.tar.gz"
+      sha256 "61575ecf73533f57d1dc589a2cbfd3f73c2442ce810160dced853cdd7f1ab947"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/vectorhawk/vectorhawkd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "47b770a90b40b2a563ba39cf2297f551c15abcb04057bf67c4226dcdc76d6c93"
+      url "https://github.com/scenery-dev/sceneryd/releases/download/v#{version}/vectorhawk-#{version}-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "32a042cfdf5d189882ca9bf07ee2001af34ceea837e6a2425d148dd21ca938a9"
     end
     # ARM Linux not yet built. Track demand before adding.
   end
