@@ -1,16 +1,17 @@
-# VectorHawk Homebrew Tap
+# Scenery Homebrew Tap
 
-Homebrew formula for the VectorHawk platform.
+Homebrew formula for the Scenery platform.
 
-## VectorHawk runner
+## Scenery runner
 
-Install the VectorHawk runner — a single `vectorhawk` binary that embeds the
-CLI, the daemon (`vectorhawk daemon run`), and the MCP relay (`vectorhawk mcp serve`):
+Install the Scenery runner — a single `scenery` binary (with a short `scn` alias)
+that embeds the CLI, the daemon (`scenery daemon run`), and the MCP relay
+(`scenery mcp serve`):
 
 ```bash
 brew tap scenery-dev/tap
 brew trust scenery-dev/tap
-brew install vectorhawk
+brew install scenery
 ```
 
 `brew trust` is required by Homebrew 7 and later before it will load a formula
@@ -20,8 +21,8 @@ from any third-party tap. Without it `brew install` fails with
 Then start the agent and configure your AI client:
 
 ```bash
-brew services start vectorhawk
-vectorhawk mcp setup
+brew services start scenery
+scenery mcp setup
 ```
 
 `brew services` is how the agent is started and kept running at login.
@@ -31,19 +32,19 @@ these can run automatically during `brew install`.
 ### Upgrade
 
 ```bash
-brew upgrade vectorhawk
+brew upgrade scenery
 ```
 
 ### Uninstall
 
 ```bash
-brew uninstall vectorhawk
+brew uninstall scenery
 # Remove the LaunchAgent / systemd user unit if you installed it:
-vectorhawk daemon uninstall
+scenery daemon uninstall
 ```
 
 ## Available Formulae
 
 | Formula | Description |
 |---------|-------------|
-| `vectorhawk` | VectorHawk runner — pre-built `vectorhawk` binary (macOS arm64/x86_64, Linux x86_64) |
+| `scenery` | Scenery runner — pre-built `scenery` binary plus `scn` alias (macOS arm64/x86_64, Linux x86_64) |
