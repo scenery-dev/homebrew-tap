@@ -1,24 +1,24 @@
 class Scenery < Formula
   desc "Governed AI platform for skills, MCP servers, and plugins"
   homepage "https://scenery.dev"
-  version "2.1.1"
+  version "2.2.0"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/scenery-dev/scenery/releases/download/v#{version}/scenery-#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "62d14f5b4a68043a453603086a1621868d55458256b8aef9ec2161cdd719a553"
+      sha256 "e6f7d7c0b14451b0de0ef0874e11d64adf74722f74b78954cc3441b29a884ccc"
     end
     on_intel do
       url "https://github.com/scenery-dev/scenery/releases/download/v#{version}/scenery-#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "7c1f15c5362d2ecdcad1cdfef729d4ac452de2a5723e1ec12c616a1cdb555557"
+      sha256 "b87c2b9738eb270dc1b72cc689c2f4e59339470e0c0560990484b64f4ec097d0"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/scenery-dev/scenery/releases/download/v#{version}/scenery-#{version}-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "d07a87f947cbfc863c9e7a250a37fd7b02f523a2a95bde2cd7e0be6198214e1e"
+      sha256 "86cb845f57e57b284fbb9118185354a9b8d8de60873ad8935e610355e7fc3697"
     end
     # ARM Linux not yet built. Track demand before adding.
   end
